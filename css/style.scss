@@ -1,0 +1,194 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #fdfcf6;
+$baseColor2: #F1DBFF;
+$subColor: #9FA4FF;
+$subColor2: #E5E5FF;
+$keyColor: #14c0c9;
+$fontColor: #4c4c4c;
+
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+/* header
+------------------------------------------------------------*/
+header {
+  .header-box {
+    background-image: url("../images/ELLY120064838_TP_V.jpg");
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+section {
+  padding: 20px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h2 {
+    @extend .abel;
+    font-size: 4rem;
+    @extend .uppercase;
+  }
+}
+
+
+// section1
+#section1 {
+  background-color: $baseColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);    // ボックスを縦に並べる
+  }
+  h2 {
+    margin: 20px;
+  }
+  .section1-box {
+    @include flex(1);
+    margin: 10px 0;                     // 上下にマージン
+    padding: 0px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+  h3 {
+    @extend .abel;
+    @extend .uppercase;
+    background-color: $subColor2;
+    color: $keyColor;
+    font-size: 3.2rem;
+    font-weight: bold;
+    word-wrap: break-word;
+    overflow-wrap : break-word;
+  }
+  p {
+    background-color: $subColor;
+    padding: 10px 5px;
+    text-align: left;
+    font-size: 2.6rem;
+    min-height:70px;
+    word-wrap: break-word;
+    overflow-wrap : break-word;
+  }
+}
+
+// section2
+#section2 {
+  background-color: $baseColor2;
+  .container {
+    justify-content: center;
+  }
+  h4 {
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    @extend .abel;
+    @extend .uppercase;
+  }
+  .section2-box {
+    width: 100%;                  // widthを100%にして1列に1つ表示（つまり縦に並ぶ）
+    @extend .abel;
+    @extend .uppercase;
+    font-size: 2.4rem;
+    font-weight:bold;
+    text-decoration:none;
+    display:block;
+    @extend .block-center;
+    text-align:center;
+    padding:8px 0 10px;
+    color:#fff;
+    background-color:#49a9d4;
+    border-radius:5px;
+  }
+}
+
+
+// desktop
+@media (min-width: 768px) {
+
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Header
+  ------------------------------------------------------------*/
+  .button-contact {
+    &:hover, &:active {
+      background-color: $fontColor;
+      color: #FFF;
+    }
+  }
+  
+  // section1
+  #section1 {
+    .container {
+      @include flex-direction(row);     // スキルボックスを横に並べる
+      justify-content: space-between;
+    }
+    .section1-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }  
+  
+  // section2
+  #section2 {
+    .container {
+      justify-content: center;
+    }
+    .section2-box {
+      width: (100% / 3);         // widthを33%にして中央に１つ表示
+    }
+  }  
+
+
+}
